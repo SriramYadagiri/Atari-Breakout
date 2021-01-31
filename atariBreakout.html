@@ -110,7 +110,11 @@
                 setInterval(function(){
                   draw();
                   if(lives<=0){
+	             alert("You Lost with a score of "+score+"!");
                      reset();
+                  } else if(score>=45){
+			    alert("You won with "+lives+" lives!");
+			    reset();
                   }
                   for(var i=0; i<bricks.length; i++){
                     rect(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, bricks[i].color);
@@ -134,7 +138,6 @@
                 ctx.fillText(text, x, y); 
               }
               function reset(){
-                alert("You Lost with a score of "+score+"!");
                 ball.velocityY = 1;
                 ball.velocityX = 1;
                 score = 0;
@@ -147,7 +150,7 @@
                       bricks.push({x: i, y: 80, width: 75, height: 30, color: colors[Math.floor(Math.random() * 49)]});
                       bricks.push({x: i, y: 120, width: 75, height: 30, color: colors[Math.floor(Math.random() * 49)]});
                 }
-              }
+	      }
             }
         </script>
     </body>
